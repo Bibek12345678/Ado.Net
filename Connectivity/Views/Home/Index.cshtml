@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Connectivity.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List Of Product</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rate)
+        </td>
+
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+        </td>
+     
+    </tr>
+}
+
+</table>
